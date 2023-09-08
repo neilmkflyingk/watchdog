@@ -92,6 +92,7 @@ function init () {
   })
 }
 
+// shows department table
 function viewAllDepartments () {
   db.query('select * from department', function (err,res) {
     console.log('Here are the departments');
@@ -100,6 +101,7 @@ function viewAllDepartments () {
   }) 
 }
 
+// shows role table
 function viewAllRoles () {
   db.query('select * from role', function (err,res) {
     console.log('Here are the roles');
@@ -108,6 +110,7 @@ function viewAllRoles () {
   }) 
 }
 
+// shows employee table
 function viewAllEmployees () {
   db.query('select * from employee', function (err, res) {
     console.log('Here are the employees');
@@ -116,6 +119,7 @@ function viewAllEmployees () {
   })
 }
 
+// adds new department to department table
 function addDepartment () {
   inquirer.prompt({
     type: 'input',
@@ -132,6 +136,7 @@ function addDepartment () {
   })
 }
 
+// ads role to role table
 async function addRole () {
   const departments = await queryDepartments();
   inquirer.prompt([
@@ -166,6 +171,7 @@ async function addRole () {
   })
 }
 
+// adds employee to employee table
 async function addEmployee () {
   const roles = await queryRoles()
   const employees = await queryEmployees()
@@ -207,6 +213,7 @@ async function addEmployee () {
   })
 }
 
+// changes an employees role in employee table
 async function updateEmployeeRole () {
   const roles = await queryRoles();
   const employees = await queryEmployees();
@@ -241,4 +248,5 @@ async function updateEmployeeRole () {
   })
 }
 
+// initializes program when node server ran
 init();
